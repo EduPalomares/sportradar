@@ -56,7 +56,23 @@ class FootballBoard {
   }
 
   summary(board = this.data) {
-    console.log(toString(board))
+    console.log(
+      board
+        .map(
+          (o, idx) =>
+            idx +
+            1 +
+            ': ' +
+            o.home +
+            ' - ' +
+            o.away +
+            ': ' +
+            o.score[0] +
+            ' - ' +
+            o.score[1]
+        )
+        .join('\n')
+    )
   }
 
   summaryByTotalScore() {

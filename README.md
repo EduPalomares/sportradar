@@ -17,6 +17,6 @@ Implementation of Football World Cup Score Board as a simple library and TDD.
 
 ```
 Install: npm i
-Run: npm start (http://localhost:3001)
+Run: npm start
 Test: npm test
 ```
