@@ -1,7 +1,8 @@
 import {
   addElement,
   removeElement,
-  replaceElement
+  replaceElement,
+  sumElements
 } from '../helpers/arrayUtils.js'
 class FootballBoard {
   constructor(results = []) {
@@ -27,6 +28,8 @@ class FootballBoard {
   }
 
   updateScore(index, homeScore, awayScore) {
+    if (!homeScore > 0 || !awayScore > 0) return
+
     const match = this.data[index - 1]
     this.data = replaceElement(this.data, index - 1, {
       ...match,

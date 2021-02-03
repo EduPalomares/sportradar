@@ -54,6 +54,7 @@ describe('updateScore', () => {
   test('empty board', () => {
     const board = new FootballBoard()
     board.updateScore(0, 0, 0)
+    board.updateScore(0, -1, 0)
     expect(board.results).toStrictEqual([])
   })
 
