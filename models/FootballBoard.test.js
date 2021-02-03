@@ -35,3 +35,17 @@ describe('addGame', () => {
     expect(board.results).toStrictEqual(expected)
   })
 })
+
+describe('finishGame', () => {
+  test('empty board', () => {
+    const board = new FootballBoard()
+    board.finishGame(0)
+    expect(board.results).toStrictEqual([])
+  })
+
+  test('non empty board', () => {
+    const board = new FootballBoard(boardDataExample)
+    board.finishGame(1)
+    expect(board.results.length).toBe(4)
+  })
+})

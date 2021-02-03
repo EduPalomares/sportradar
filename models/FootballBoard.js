@@ -1,4 +1,4 @@
-import { addElement } from '../helpers/arrayUtils.js'
+import { addElement, removeElement } from '../helpers/arrayUtils.js'
 class FootballBoard {
   constructor(results = []) {
     this.data = results
@@ -18,7 +18,9 @@ class FootballBoard {
     })
   }
 
-  finishGame(index) {}
+  finishGame(index) {
+    this.data = removeElement(this.data, index - 1)
+  }
 
   updateScore(index, homeScore, awayScore) {}
 
