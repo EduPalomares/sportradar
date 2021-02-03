@@ -1,16 +1,29 @@
+import { addElement } from '../helpers/arrayUtils.js'
 class FootballBoard {
   constructor(results = []) {
-    this.results = results
+    this.data = results
   }
 
-  addGame(homeTeam, awayTeam) {}
+  get results() {
+    return this.data
+  }
+
+  addGame(homeTeam, awayTeam) {
+    if (!homeTeam || !awayTeam) return
+
+    this.data = addElement(this.data, {
+      home: homeTeam,
+      away: awayTeam,
+      score: [0, 0]
+    })
+  }
 
   finishGame(index) {}
 
   updateScore(index, homeScore, awayScore) {}
 
   toString() {
-    return this.results
+    return this.data
       .map(
         (o, idx) =>
           idx +
@@ -27,11 +40,18 @@ class FootballBoard {
       .join('\n')
   }
 
-  summary(board = this.results) {
+  summary(board = this.data) {
     console.log(toString(board))
   }
 
-  summaryByTotalScore() {}
+  summaryByTotalScore() {
+    let board = [...this.data].reverse().sort(function (a, b) {
+      let x = sumElements(a.score)
+      let y = sumElements(b.score)
+      return x > y ? -1 : x < y ? 1 : 0
+    })
+    this.summary(board)
+  }
 }
 
 export default FootballBoard
