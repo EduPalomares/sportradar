@@ -49,3 +49,19 @@ describe('finishGame', () => {
     expect(board.results.length).toBe(4)
   })
 })
+
+describe('updateScore', () => {
+  test('empty board', () => {
+    const board = new FootballBoard()
+    board.updateScore(0, 0, 0)
+    expect(board.results).toStrictEqual([])
+  })
+
+  test('non empty board', () => {
+    const board = new FootballBoard(boardDataExample)
+    board.updateScore(1, 100, 200)
+    expect(board.toString()).toBe(
+      '1: Mexico - Canada: 100 - 200\n2: Spain - Brazil: 10 - 2\n3: Germany - France: 2 - 2\n4: Uruguay - Italy: 6 - 6\n5: Argentina - Australia: 3 - 1'
+    )
+  })
+})
