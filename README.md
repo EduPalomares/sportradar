@@ -20,9 +20,3 @@ Install: npm i
 Run: npm start (http://localhost:3001)
 Test: npm test
 ```
-
-<br>
-
-## Online Demo
-
-https://edupalomares.github.io/sportradar/
